@@ -1,5 +1,5 @@
 const actual = document.getElementById('actual');
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('.button-calc');
 const resultado = document.getElementById('resultado');
 
 function handleClick(event) {
