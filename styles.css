@@ -19,3 +19,17 @@
     margin: 3px;
     padding: 3px;
 }
+
+.button-calc {
+    font-size: large;
+    font-weight: bold;
+    font-style: italic;
+    font-family: sans-serif;
+    background-color: #ffffff;
+    color: #0000ff;
+}
+
+.operator {
+    background-color: #00f0f0;
+    color: #000000;
+}
