@@ -3,3 +3,19 @@
     grid-template-columns: auto auto auto auto;
     text-align: center;
 }
+
+#resultado {
+    text-align: right;
+    border: 2px solid #0000ff;
+    border-radius: 10%;
+    margin: 3px;
+    padding: 3px;
+}
+
+#actual {
+    text-align: right;
+    border: 2px solid #c0c0c0;
+    border-radius: 10%;
+    margin: 3px;
+    padding: 3px;
+}
