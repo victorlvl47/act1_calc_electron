@@ -1,58 +1,20 @@
-// actual div
-var actual = document.getElementById('actual');
+const actual = document.getElementById('actual');
+const buttons = document.querySelectorAll('button');
+const resultado = document.getElementById('resultado');
 
-// Botones
-var boton_uno = document.getElementById('boton-uno');
-var boton_dos = document.getElementById('boton-dos');
-var boton_tres = document.getElementById('boton-tres');
-var boton_cuatro = document.getElementById('boton-cuatro');
-var boton_cinco = document.getElementById('boton-cinco');
-var boton_seis = document.getElementById('boton-seis');
-var boton_siete = document.getElementById('boton-siete');
-var boton_ocho = document.getElementById('boton-ocho');
-var boton_nueve = document.getElementById('boton-nueve');
-var boton_cero = document.getElementById('boton-cero');
+function handleClick(event) {
+    // sumar
+    if (event.target.textContent == "+") {
+        let valorActual = parseInt(actual.innerHTML);
+        let valorResultado = parseInt(resultado.innerHTML);
+        resultado.innerHTML = valorActual + valorResultado;
+        actual.innerHTML = '0';
+    }
+    else {
+        actual.innerHTML += event.target.textContent;
+    }
+}
 
-// Add listener botones
-boton_uno.addEventListener('click', click_uno);
-boton_dos.addEventListener('click', click_dos);
-boton_tres.addEventListener('click', click_tres);
-boton_cuatro.addEventListener('click', click_cuatro);
-boton_cinco.addEventListener('click', click_cinco);
-boton_seis.addEventListener('click', click_seis);
-boton_siete.addEventListener('click', click_siete);
-boton_ocho.addEventListener('click', click_ocho);
-boton_nueve.addEventListener('click', click_nueve);
-boton_cero.addEventListener('click', click_cero);
-
-// button functions
-function click_uno() {
-    actual.innerHTML += '1';
-}
-function click_dos() {
-    actual.innerHTML += '2';
-}
-function click_tres() {
-    actual.innerHTML += '3';
-}
-function click_cuatro() {
-    actual.innerHTML += '4';
-}
-function click_cinco() {
-    actual.innerHTML += '5';
-}
-function click_seis() {
-    actual.innerHTML += '6';
-}
-function click_siete() {
-    actual.innerHTML += '7';
-}
-function click_ocho() {
-    actual.innerHTML += '8';
-}
-function click_nueve() {
-    actual.innerHTML += '9';
-}
-function click_cero() {
-    actual.innerHTML += '0';
-}
+buttons.forEach(button => {
+    button.addEventListener('click', handleClick);
+});
