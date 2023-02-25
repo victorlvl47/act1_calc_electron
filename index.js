@@ -43,20 +43,39 @@ function delOne() {
     }
 }
 
+function handleNumberKeyPress(number) {
+    actual.innerHTML += number;
+}
+
+function handleOperatorKeyPress(operator) {
+    if (operator == "+") {
+        sumar();
+    }
+    else if (operator == '-') {
+        restar();
+    }
+    else if (operator == "*") {
+        multiplicar();
+    }
+    else if (operator == "/") {
+        dividir();
+    }
+}
+
 function handleClick(event) {
     // sumar
     if (event.target.textContent == "+") {
-        sumar();
+        handleOperatorKeyPress("+");
     }
     // resta
     else if (event.target.textContent == '-') {
-        restar();
+        handleOperatorKeyPress("-");
     }
     else if (event.target.textContent == "*") {
-        multiplicar();
+        handleOperatorKeyPress("*");
     }
     else if (event.target.textContent == "/") {
-        dividir();
+        handleOperatorKeyPress("/");
     }
     else if (event.target.textContent == "DEL") {
         delOne();
@@ -65,7 +84,7 @@ function handleClick(event) {
         clearAll();
     }
     else {
-        actual.innerHTML += event.target.textContent;
+        handleNumberKeyPress(event.target.textContent);
     }
 }
 
@@ -76,20 +95,20 @@ buttons.forEach(button => {
 // Mousetrap bind to numbers 0 to 9.
 for (let i = 0; i <= 9; i++) {
     Mousetrap.bind(`${i}`, function() {
-        actual.innerHTML += i;
+        handleNumberKeyPress(i);
     });
 }
 
 // Operator buttons mousetrap
 Mousetrap.bind("+", function() {
-    sumar();
+    handleOperatorKeyPress("+");
 });
 Mousetrap.bind("-", function() {
-    restar();
+    handleOperatorKeyPress("-");
 });
 Mousetrap.bind("*", function() {
-    multiplicar();
+    handleOperatorKeyPress("*");
 });
 Mousetrap.bind("/", function() {
-    dividir();
+    handleOperatorKeyPress("/");
 });
