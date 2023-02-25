@@ -3,12 +3,29 @@ var Mousetrap = require("mousetrap");
 const actual = document.getElementById('actual');
 const buttons = document.querySelectorAll('.button-calc');
 const resultado = document.getElementById('resultado');
+const historial_operaciones = document.getElementById('historial-operaciones');
+
+function crearOperacionHistorial(operand1, operand2, operator, result) {
+    // create a new <p> element
+    var operacion = document.createElement("p");
+
+    // create a text node
+    var text_operacion = document.createTextNode(`${operand1} ${operator} ${operand2} = ${result}`);
+
+    // append the text node to the <p> element
+    operacion.appendChild(text_operacion);
+
+    // add the <p> element to the document
+    historial_operaciones.insertBefore(operacion, historial_operaciones.firstChild);
+}
 
 function sumar() {
     let valorActual = parseInt(actual.innerHTML);
     let valorResultado = parseInt(resultado.innerHTML);
-    resultado.innerHTML = valorActual + valorResultado;
+    let ans = valorActual + valorResultado;
+    resultado.innerHTML = ans;
     actual.innerHTML = '0';
+    crearOperacionHistorial(valorResultado, valorActual, "+", ans)
 }
 
 function restar() {
