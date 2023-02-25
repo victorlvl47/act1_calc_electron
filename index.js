@@ -4,13 +4,17 @@ const actual = document.getElementById('actual');
 const buttons = document.querySelectorAll('.button-calc');
 const resultado = document.getElementById('resultado');
 
+function sumar() {
+    let valorActual = parseInt(actual.innerHTML);
+    let valorResultado = parseInt(resultado.innerHTML);
+    resultado.innerHTML = valorActual + valorResultado;
+    actual.innerHTML = '0';
+}
+
 function handleClick(event) {
     // sumar
     if (event.target.textContent == "+") {
-        let valorActual = parseInt(actual.innerHTML);
-        let valorResultado = parseInt(resultado.innerHTML);
-        resultado.innerHTML = valorActual + valorResultado;
-        actual.innerHTML = '0';
+        sumar();
     }
     else {
         actual.innerHTML += event.target.textContent;
@@ -27,3 +31,8 @@ for (let i = 0; i <= 9; i++) {
         actual.innerHTML += i;
     });
 }
+
+// Operator buttons mousetrap
+Mousetrap.bind("+", function() {
+    sumar();
+});
