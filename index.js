@@ -32,6 +32,17 @@ function dividir() {
     actual.innerHTML = '0';
 }
 
+function clearAll() {
+    actual.innerHTML = '0';
+    resultado.innerHTML = '0';
+}
+
+function delOne() {
+    if (actual.innerHTML != "0") {
+        actual.innerHTML = actual.innerHTML.slice(0, actual.innerHTML.length - 1);
+    }
+}
+
 function handleClick(event) {
     // sumar
     if (event.target.textContent == "+") {
@@ -46,6 +57,12 @@ function handleClick(event) {
     }
     else if (event.target.textContent == "/") {
         dividir();
+    }
+    else if (event.target.textContent == "DEL") {
+        delOne();
+    }
+    else if (event.target.textContent == "AC") { 
+        clearAll();
     }
     else {
         actual.innerHTML += event.target.textContent;
