@@ -18,13 +18,24 @@ function restar() {
     actual.innerHTML = '0';
 }
 
+function multiplicar() {
+    let valorActual = parseInt(actual.innerHTML);
+    let valorResultado = parseInt(resultado.innerHTML);
+    resultado.innerHTML = valorResultado * valorActual;
+    actual.innerHTML = '0';
+}
+
 function handleClick(event) {
     // sumar
     if (event.target.textContent == "+") {
         sumar();
     }
-    if (event.target.textContent == '-') {
+    // resta
+    else if (event.target.textContent == '-') {
         restar();
+    }
+    else if (event.target.textContent == "*") {
+        multiplicar();
     }
     else {
         actual.innerHTML += event.target.textContent;
@@ -50,7 +61,7 @@ Mousetrap.bind("-", function() {
     restar();
 });
 Mousetrap.bind("*", function() {
-    
+    multiplicar();
 });
 Mousetrap.bind("/", function() {
     
