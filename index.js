@@ -25,6 +25,13 @@ function multiplicar() {
     actual.innerHTML = '0';
 }
 
+function dividir() {
+    let valorActual = parseInt(actual.innerHTML);
+    let valorResultado = parseInt(resultado.innerHTML);
+    resultado.innerHTML = valorResultado / valorActual;
+    actual.innerHTML = '0';
+}
+
 function handleClick(event) {
     // sumar
     if (event.target.textContent == "+") {
@@ -36,6 +43,9 @@ function handleClick(event) {
     }
     else if (event.target.textContent == "*") {
         multiplicar();
+    }
+    else if (event.target.textContent == "/") {
+        dividir();
     }
     else {
         actual.innerHTML += event.target.textContent;
@@ -64,5 +74,5 @@ Mousetrap.bind("*", function() {
     multiplicar();
 });
 Mousetrap.bind("/", function() {
-    
+    dividir();
 });
