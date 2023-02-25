@@ -33,3 +33,8 @@
     background-color: #00f0f0;
     color: #000000;
 }
+
+#boton-delete, #boton-clear {
+    background-color: #b42703;
+    color: #ffffff;
+}
