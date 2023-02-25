@@ -25,28 +25,38 @@ function sumar() {
     let ans = valorActual + valorResultado;
     resultado.innerHTML = ans;
     actual.innerHTML = '0';
+
     crearOperacionHistorial(valorResultado, valorActual, "+", ans)
 }
 
 function restar() {
     let valorActual = parseInt(actual.innerHTML);
     let valorResultado = parseInt(resultado.innerHTML);
-    resultado.innerHTML = valorResultado - valorActual;
+    let ans = valorResultado - valorActual;
+    resultado.innerHTML = ans;
     actual.innerHTML = '0';
+
+    crearOperacionHistorial(valorResultado, valorActual, "-", ans)
 }
 
 function multiplicar() {
     let valorActual = parseInt(actual.innerHTML);
     let valorResultado = parseInt(resultado.innerHTML);
-    resultado.innerHTML = valorResultado * valorActual;
+    let ans = valorResultado * valorActual;
+    resultado.innerHTML = ans;
     actual.innerHTML = '0';
+
+    crearOperacionHistorial(valorResultado, valorActual, "*", ans)
 }
 
 function dividir() {
     let valorActual = parseInt(actual.innerHTML);
     let valorResultado = parseInt(resultado.innerHTML);
-    resultado.innerHTML = valorResultado / valorActual;
+    let ans = valorResultado / valorActual;
+    resultado.innerHTML = ans;
     actual.innerHTML = '0';
+
+    crearOperacionHistorial(valorResultado, valorActual, "/", ans)
 }
 
 function clearAll() {
