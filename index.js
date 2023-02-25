@@ -11,10 +11,20 @@ function sumar() {
     actual.innerHTML = '0';
 }
 
+function restar() {
+    let valorActual = parseInt(actual.innerHTML);
+    let valorResultado = parseInt(resultado.innerHTML);
+    resultado.innerHTML = valorResultado - valorActual;
+    actual.innerHTML = '0';
+}
+
 function handleClick(event) {
     // sumar
     if (event.target.textContent == "+") {
         sumar();
+    }
+    if (event.target.textContent == '-') {
+        restar();
     }
     else {
         actual.innerHTML += event.target.textContent;
@@ -35,4 +45,13 @@ for (let i = 0; i <= 9; i++) {
 // Operator buttons mousetrap
 Mousetrap.bind("+", function() {
     sumar();
+});
+Mousetrap.bind("-", function() {
+    restar();
+});
+Mousetrap.bind("*", function() {
+    
+});
+Mousetrap.bind("/", function() {
+    
 });
